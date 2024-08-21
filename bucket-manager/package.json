@@ -1,0 +1,17 @@
+{
+    "name": "bucket-manager",
+    "version": "1.0.0",
+    "main": "server.js",
+    "license": "MIT",
+    "dependencies": {
+        "@aws-sdk/client-cognito-identity": "^3.635.0",
+        "@aws-sdk/client-cognito-identity-provider": "^3.635.0",
+        "@aws-sdk/client-s3": "^3.635.0",
+        "aws-sdk": "^2.1678.0",
+        "body-parser": "^1.19.0",
+        "express": "^4.17.1",
+        "jsonwebtoken": "^9.0.2",
+        "jwks-rsa": "^3.1.0",
+        "node-windows": "^1.0.0-beta.8"
+    }
+}

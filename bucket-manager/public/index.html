@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mock Server Manager</title>
+    <link href="https://cdn.jsdelivr.net/npm/jsoneditor@9.5.6/dist/jsoneditor.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="./styles/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/jsoneditor@9.5.6/dist/jsoneditor.min.js"></script>
+</head>
+<body>
+    <div class="overlay" id="login-overlay">
+        <div class="login-container">
+            <h2>Login</h2>
+            <form id="login-form">
+                <div class="login-inputs">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" placeholder="User name" required>
+                </div>
+                
+                <div class="login-inputs">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Password" required>
+                </div>
+                <button type="submit">Login</button>
+                <p id="login-error" class="error-message"></p>
+            </form>
+        </div>
+    </div>
+
+    <div class="container" id="main-content">
+        <div class="sidebar">
+            <h2>Mock Explorer</h2>
+            <button id="show-create-form">Create New Mock Service</button>
+            <ul id="file-explorer"></ul>
+        </div>
+
+        <div class="content">
+            <!-- File Details y JSON Editor -->
+            <div id="file-details-editor" class="file-details-editor" style="display:none;">
+                <div class="file-details">
+                    <h2>Mock Service Details</h2>
+                    <p><strong>Application:</strong> <span id="file-app">-</span></p>
+                    <p><strong>Service:</strong> <span id="file-service">-</span></p>
+                    <p><strong>Query Params:</strong> <span id="file-query-params">-</span></p>
+                    <p><strong>Method:</strong> <span id="file-method">-</span></p>
+                </div>
+
+                <div id="json-editor-container" class="json-editor-container">
+                    <h3>JSON Editor</h3>
+                    <div id="json-editor" class="json-editor"></div>
+                    <div class="actions">
+                        <button id="save-button">Save</button>
+                        <button id="cancel-button">Cancel</button>
+                        <button id="delete-button">Delete</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Formulario de creación -->
+            <div id="create-form-container" style="display:none;">
+                <h2>Create New Mock Service</h2>
+                <form id="create-form" class="create-form">
+                    <label for="application">Application:</label>
+                    <input type="text" id="application" name="application" required>
+
+                    <label for="service">Service:</label>
+                    <input type="text" id="service" name="service" required>
+
+                    <label for="queryParams">Query Params (Format: key=value, separated by &):</label>
+                    <input type="text" id="queryParams" name="queryParams">
+
+                    <label for="method">Method:</label>
+                    <select id="method" name="method" required>
+                        <option value="GET">GET</option>
+                        <option value="POST">POST</option>
+                        <option value="PUT">PUT</option>
+                        <option value="DELETE">DELETE</option>
+                        <option value="PATCH">PATCH</option>
+                    </select>
+
+                    <div id="create-json-editor" class="create-json-editor"></div>
+
+                    <div class="actions">
+                        <button type="submit">Create Mock</button>
+                        <button id="cancel-create">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="./src/app.js" type="module"></script>
+</body>
+</html>

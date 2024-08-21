@@ -1,0 +1,11 @@
+{
+  "name": "mockserver",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "deploy": "cd infra && npm i && npm run build && cdk deploy --all --require-approval never"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

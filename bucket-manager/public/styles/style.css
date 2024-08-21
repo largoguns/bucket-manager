@@ -1,0 +1,279 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    display: none; /* Oculto por defecto */
+}
+
+.login-container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    width: 300px;
+}
+
+.login-container button {
+    margin-top: 20px;
+    background-color: #27ae60;
+    color: white;
+    padding: 10px 20px;
+    margin-left: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    float: right;
+}
+
+.login-inputs {
+    margin-bottom: 20px;
+}
+
+.login-inputs label{
+    font-size: 11px;
+}
+
+.login-inputs input{
+    border-radius: 20px;
+    border: solid 1px #c3c3c3;
+    background: #eaeaea;
+    padding: 10px;
+    width: 90%;
+    margin-top: 5px;
+    outline: none;
+}
+
+.error-message {
+    color: red;
+    font-size: 14px;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+.sidebar {
+    width: 25%;
+    background-color: #2c3e50;
+    color: white;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    overflow-y: auto; /* Scroll en la barra lateral si es necesario */
+}
+
+.sidebar h2 {
+    margin-top: 0;
+    font-size: 22px;
+}
+
+#file-explorer {
+    list-style-type: none;
+    padding-left: 0;
+    margin-bottom: 20px;
+}
+
+.file-list {
+    list-style-type: none;
+    padding-left: 0px;
+    margin: 0;
+}
+
+.file-list .folder,
+.file-list .file {
+    cursor: pointer;
+    margin: 5px 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+}
+
+.file-list .folder::before {
+    content: '📁 ';
+    margin-right: 5px;
+}
+
+.file-list .folder.expanded::before {
+    content: '📂 ';
+    margin-right: 5px;
+}
+
+.file-list .file::before {
+    content: '📄 ';
+    margin-right: 5px;
+}
+
+.file-list ul {
+    padding-left: 20px;
+    margin: 0;
+    list-style-type: none;
+    display: none;
+}
+
+.file-list .expanded > ul {
+    display: block;
+}
+
+#show-create-form {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #27ae60;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+}
+
+#show-create-form:hover {
+    background-color: #218c54;
+}
+
+.content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    overflow-y: auto; /* Scroll en el contenido si es necesario */
+}
+
+.file-details, .file-editor {
+    margin-bottom: 20px;
+}
+
+#json-editor-container {
+    margin-top: 20px;
+}
+
+.actions {
+    justify-content: flex-end;
+}
+
+.actions button {
+    padding: 10px 20px;
+    margin-left: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#save-button {
+    float: right;
+    background-color: #27ae60;
+    color: white;
+}
+
+#save-button:hover {
+    background-color: #218c54;
+}
+
+#cancel-button {
+    float: right;
+    background-color: #e74c3c;
+    color: white;
+}
+
+#cancel-button:hover {
+    background-color: #c0392b;
+}
+
+#delete-button {
+    float: left;
+    background-color: #ff1900e5;
+    color: white;
+}
+
+#delete-button:hover {
+    background-color: #ff1900;
+}
+
+#create-form-container {
+    margin-top: 20px;
+}
+
+#create-form label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+#create-form input,
+#create-form select,
+#create-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+#create-form .actions button[type="submit"],
+#create-form .actions button[type="button"] {
+    padding: 10px 20px;
+    background-color: #27ae60;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#create-form .actions button[type="submit"]:hover,
+#create-form .actions button[type="button"]:hover {
+    background-color: #218c54;
+}
+
+#cancel-create {
+    background-color: #e74c3c;
+    color: white;
+}
+
+#cancel-create:hover {
+    background-color: #c0392b;
+}
+
+.file-details-editor {
+    height: 100%;
+}
+
+.json-editor-container {
+    height: 84%;
+}
+
+.json-editor {
+    width: 100%;
+    height: 90%;
+    margin-bottom: 10px;
+}
+
+.create-form {
+    height: 100%;
+    width: 98%;
+}
+
+.create-json-editor {
+    width: 100%;
+    height: 100%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
